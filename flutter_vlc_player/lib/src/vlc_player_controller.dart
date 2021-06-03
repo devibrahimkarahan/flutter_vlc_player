@@ -546,7 +546,8 @@ class VlcPlayerController extends ValueNotifier<VlcPlayerValue> {
   /// linear scale.
   Future<void> setVolume(int volume) async {
     _throwIfNotInitialized('setVolume');
-    value = value.copyWith(volume: volume.clamp(0, 100));
+    value = value.copyWith(volume: volume);
+    // value = value.copyWith(volume: volume.clamp(0, 100));
     await vlcPlayerPlatform.setVolume(_viewId, value.volume);
   }
 
